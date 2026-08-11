@@ -258,7 +258,7 @@ const CONFIG = {
             "https://maps.app.goo.gl/xPgE8VT75hBpmMvq9",
 
         image:
-            "Assets/Images/venue.jpg",
+            "venue.jpg",
 
         buttonText:
             "Our Special Day"
