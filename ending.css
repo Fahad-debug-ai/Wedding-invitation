@@ -1,0 +1,511 @@
+/* =========================================================
+   ENDING SECTION
+========================================================= */
+
+.ending-page {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 80px 24px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(145, 103, 76, 0.10),
+            transparent 48%
+        );
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.ending-background {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+.ending-background__glow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    opacity: 0.25;
+}
+
+
+.ending-background__glow--one {
+    width: 360px;
+    height: 360px;
+
+    top: -140px;
+    left: -100px;
+
+    background:
+        rgba(171, 126, 93, 0.18);
+}
+
+
+.ending-background__glow--two {
+    width: 420px;
+    height: 420px;
+
+    right: -160px;
+    bottom: -160px;
+
+    background:
+        rgba(126, 91, 68, 0.14);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.ending-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(100%, 760px);
+
+    text-align: center;
+
+    padding:
+        40px 30px;
+
+    animation:
+        endingReveal
+        1.2s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.ending-eyebrow {
+    display: block;
+
+    margin-bottom: 22px;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.30em;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(113, 79, 57, 0.68);
+}
+
+
+/* =========================================================
+   SYMBOL
+========================================================= */
+
+.ending-symbol {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 16px;
+
+    margin-bottom: 24px;
+}
+
+
+.ending-symbol span {
+    display: block;
+
+    width: 55px;
+    height: 1px;
+
+    background:
+        rgba(118, 85, 64, 0.28);
+}
+
+
+.ending-symbol strong {
+    font-size: 25px;
+
+    font-weight: 400;
+
+    color:
+        #765540;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.ending-title {
+    margin: 0 auto;
+
+    max-width: 720px;
+
+    font-size:
+        clamp(46px, 7vw, 82px);
+
+    line-height: 1.02;
+
+    font-weight: 400;
+
+    letter-spacing: -0.035em;
+
+    color:
+        #3b2a22;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.ending-message {
+    max-width: 510px;
+
+    margin:
+        28px auto 35px;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    color:
+        rgba(67, 49, 40, 0.68);
+}
+
+
+/* =========================================================
+   NAMES
+========================================================= */
+
+.ending-names {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 10px;
+}
+
+
+.ending-name {
+    font-size:
+        clamp(24px, 3vw, 34px);
+
+    font-weight: 400;
+
+    color:
+        #4a3428;
+}
+
+
+.ending-ampersand {
+    font-size: 18px;
+
+    color:
+        #765540;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.ending-date {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    margin-top: 26px;
+}
+
+
+.ending-date__line {
+    width: 65px;
+
+    height: 1px;
+
+    background:
+        rgba(118, 85, 64, 0.25);
+}
+
+
+.ending-date__text {
+    font-size: 10px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.20em;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(67, 49, 40, 0.62);
+}
+
+
+/* =========================================================
+   FINAL MESSAGE
+========================================================= */
+
+.ending-thankyou {
+    margin:
+        30px 0 0;
+
+    font-size: 12px;
+
+    letter-spacing: 0.08em;
+
+    color:
+        rgba(67, 49, 40, 0.55);
+}
+
+
+/* =========================================================
+   SIDE DETAILS
+========================================================= */
+
+.ending-side {
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 3;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.25em;
+
+    color:
+        rgba(67, 49, 40, 0.42);
+
+    writing-mode:
+        vertical-rl;
+
+    transform:
+        translateY(-50%);
+}
+
+
+.ending-side--left {
+    left: 22px;
+
+    transform:
+        translateY(-50%)
+        rotate(180deg);
+}
+
+
+.ending-side--right {
+    right: 22px;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes endingReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .ending-page {
+        padding:
+            70px 20px;
+    }
+
+
+    .ending-content {
+        padding:
+            35px 20px;
+    }
+
+
+    .ending-title {
+        font-size:
+            clamp(42px, 8vw, 68px);
+    }
+
+
+    .ending-side {
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .ending-page {
+        min-height: 100vh;
+
+        padding:
+            55px 16px;
+    }
+
+
+    .ending-content {
+        padding:
+            30px 12px;
+    }
+
+
+    .ending-eyebrow {
+        font-size: 8px;
+
+        letter-spacing: 0.22em;
+    }
+
+
+    .ending-symbol {
+        gap: 12px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .ending-symbol span {
+        width: 35px;
+    }
+
+
+    .ending-symbol strong {
+        font-size: 22px;
+    }
+
+
+    .ending-title {
+        font-size:
+            clamp(38px, 11vw, 52px);
+    }
+
+
+    .ending-message {
+        margin:
+            22px auto 28px;
+
+        font-size: 13px;
+
+        line-height: 1.75;
+    }
+
+
+    .ending-names {
+        gap: 10px;
+    }
+
+
+    .ending-name {
+        font-size: 24px;
+    }
+
+
+    .ending-date {
+        gap: 10px;
+
+        margin-top: 22px;
+    }
+
+
+    .ending-date__line {
+        width: 35px;
+    }
+
+
+    .ending-date__text {
+        font-size: 8px;
+
+        letter-spacing: 0.15em;
+    }
+
+
+    .ending-thankyou {
+        margin-top: 24px;
+
+        font-size: 10px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .ending-title {
+        font-size: 36px;
+    }
+
+
+    .ending-message {
+        font-size: 12px;
+    }
+
+
+    .ending-name {
+        font-size: 22px;
+    }
+
+}

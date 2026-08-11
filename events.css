@@ -1,0 +1,1248 @@
+/* =========================================================
+   WEDDING INVITATION
+   WEDDING EVENTS PAGE
+========================================================= */
+
+.events-page {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f3ebe2 0%,
+            #faf7f3 50%,
+            #ece1d5 100%
+        );
+
+    color: #302923;
+}
+
+.events-page.events-page-active {
+    display: flex;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.events-background {
+    position: absolute;
+    inset: 0;
+
+    z-index: -5;
+
+    overflow: hidden;
+}
+
+.events-background::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.85) 0%,
+            rgba(255, 255, 255, 0.2) 45%,
+            transparent 75%
+        );
+}
+
+.events-background__glow {
+    position: absolute;
+
+    width: 34rem;
+    height: 34rem;
+
+    border-radius: 50%;
+
+    filter: blur(105px);
+
+    opacity: 0.2;
+
+    pointer-events: none;
+}
+
+.events-background__glow--one {
+    top: -18rem;
+    right: -12rem;
+
+    background:
+        rgba(154, 112, 79, 0.42);
+
+    animation:
+        eventsGlowOne 14s ease-in-out infinite alternate;
+}
+
+.events-background__glow--two {
+    bottom: -18rem;
+    left: -13rem;
+
+    background:
+        rgba(190, 158, 128, 0.38);
+
+    animation:
+        eventsGlowTwo 16s ease-in-out infinite alternate;
+}
+
+@keyframes eventsGlowOne {
+
+    from {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate3d(-70px, 60px, 0)
+            scale(1.18);
+    }
+
+}
+
+@keyframes eventsGlowTwo {
+
+    from {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate3d(65px, -60px, 0)
+            scale(1.15);
+    }
+
+}
+
+
+/* =========================================================
+   DECORATIVE FRAME
+========================================================= */
+
+.events-frame {
+    position: absolute;
+
+    pointer-events: none;
+
+    border:
+        1px solid rgba(118, 86, 62, 0.17);
+
+    border-radius:
+        4px;
+}
+
+.events-frame--outer {
+    inset:
+        28px;
+
+    opacity:
+        0;
+
+    animation:
+        eventsFrameReveal 1.2s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+
+    animation-delay:
+        0.15s;
+}
+
+.events-frame--inner {
+    inset:
+        42px;
+
+    border-color:
+        rgba(118, 86, 62, 0.08);
+
+    opacity:
+        0;
+
+    animation:
+        eventsFrameReveal 1.2s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+
+    animation-delay:
+        0.3s;
+}
+
+@keyframes eventsFrameReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(1.04);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.events-content {
+    position: relative;
+
+    z-index: 5;
+
+    width:
+        min(92%, 1050px);
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        55px 20px 45px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.events-header {
+    width:
+        min(100%, 650px);
+
+    text-align:
+        center;
+
+    margin-bottom:
+        30px;
+}
+
+.events-eyebrow {
+    margin:
+        0 0 14px;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        9px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.3em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        rgba(48, 41, 35, 0.5);
+
+    opacity:
+        0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        eventsReveal 1s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+
+    animation-delay:
+        0.4s;
+}
+
+.events-title {
+    margin:
+        0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(2.5rem, 5vw, 4.2rem);
+
+    font-weight:
+        500;
+
+    line-height:
+        0.95;
+
+    letter-spacing:
+        -0.035em;
+
+    color:
+        #3d3027;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(18px);
+
+    animation:
+        eventsReveal 1s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+
+    animation-delay:
+        0.55s;
+}
+
+.events-intro {
+    max-width:
+        540px;
+
+    margin:
+        15px auto 0;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        9px;
+
+    font-weight:
+        400;
+
+    line-height:
+        1.8;
+
+    letter-spacing:
+        0.04em;
+
+    color:
+        rgba(48, 41, 35, 0.5);
+
+    opacity:
+        0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        eventsReveal 1s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+
+    animation-delay:
+        0.7s;
+}
+
+
+/* =========================================================
+   EVENTS LIST
+========================================================= */
+
+.events-list {
+    width:
+        min(100%, 900px);
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        15px;
+}
+
+
+/* =========================================================
+   EVENT CARD
+========================================================= */
+
+.event-card {
+    position:
+        relative;
+
+    min-height:
+        215px;
+
+    padding:
+        26px 22px 22px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-between;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        rgba(118, 86, 62, 0.18);
+
+    border-radius:
+        4px;
+
+    background:
+        rgba(255, 255, 255, 0.28);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    opacity:
+        0;
+
+    transform:
+        translateY(25px);
+
+    animation:
+        eventCardReveal 1s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+
+    transition:
+        transform 0.45s
+        cubic-bezier(0.16, 1, 0.3, 1),
+
+        border-color 0.35s ease,
+
+        background 0.35s ease,
+
+        box-shadow 0.35s ease;
+}
+
+.event-card:nth-child(1) {
+    animation-delay:
+        0.9s;
+}
+
+.event-card:nth-child(2) {
+    animation-delay:
+        1.05s;
+}
+
+.event-card:nth-child(3) {
+    animation-delay:
+        1.2s;
+}
+
+.event-card:hover {
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(118, 86, 62, 0.32);
+
+    background:
+        rgba(255, 255, 255, 0.42);
+
+    box-shadow:
+        0 18px 45px
+        rgba(70, 50, 35, 0.08);
+}
+
+.event-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(118, 86, 62, 0.45),
+            transparent
+        );
+
+    transform:
+        scaleX(0);
+
+    transition:
+        transform 0.5s
+        cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.event-card:hover::before {
+    transform:
+        scaleX(1);
+}
+
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.event-card__number {
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        8px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.18em;
+
+    color:
+        rgba(118, 86, 62, 0.45);
+}
+
+
+/* =========================================================
+   CARD DETAILS
+========================================================= */
+
+.event-card__details {
+    margin-top:
+        18px;
+}
+
+.event-card__label {
+    display:
+        block;
+
+    margin-bottom:
+        7px;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        7px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.22em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        rgba(118, 86, 62, 0.58);
+}
+
+.event-card__title {
+    margin:
+        0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(1.5rem, 2.5vw, 2.05rem);
+
+    font-weight:
+        500;
+
+    line-height:
+        1;
+
+    color:
+        #403228;
+}
+
+.event-card__info {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        7px;
+
+    margin-top:
+        12px;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        7px;
+
+    font-weight:
+        500;
+
+    line-height:
+        1.5;
+
+    color:
+        rgba(48, 41, 35, 0.48);
+}
+
+.event-card__separator {
+    color:
+        rgba(118, 86, 62, 0.35);
+}
+
+.event-card__venue {
+    margin:
+        7px 0 0;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        7px;
+
+    font-weight:
+        500;
+
+    letter-spacing:
+        0.03em;
+
+    color:
+        rgba(48, 41, 35, 0.42);
+}
+
+
+/* =========================================================
+   CARD ICON
+========================================================= */
+
+.event-card__icon {
+    position:
+        absolute;
+
+    right:
+        20px;
+
+    bottom:
+        17px;
+
+    width:
+        28px;
+
+    height:
+        28px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        rgba(118, 86, 62, 0.18);
+
+    border-radius:
+        50%;
+
+    font-size:
+        10px;
+
+    color:
+        rgba(118, 86, 62, 0.55);
+
+    transition:
+        transform 0.45s ease,
+        background 0.35s ease,
+        color 0.35s ease;
+}
+
+.event-card:hover
+.event-card__icon {
+    transform:
+        rotate(90deg);
+
+    background:
+        #76563e;
+
+    color:
+        #ffffff;
+}
+
+
+/* =========================================================
+   CONTINUE BUTTON
+========================================================= */
+
+.events-continue {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        13px;
+
+    margin-top:
+        28px;
+
+    padding:
+        0;
+
+    background:
+        transparent;
+
+    color:
+        #76563e;
+
+    cursor:
+        pointer;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        eventsReveal 1s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+
+    animation-delay:
+        1.5s;
+
+    transition:
+        transform 0.35s ease;
+}
+
+.events-continue:hover {
+    transform:
+        translateY(-3px);
+}
+
+.events-continue__text {
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        8px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.22em;
+
+    text-transform:
+        uppercase;
+}
+
+.events-continue__arrow {
+    width:
+        28px;
+
+    height:
+        28px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        rgba(118, 86, 62, 0.28);
+
+    border-radius:
+        50%;
+
+    font-size:
+        12px;
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        transform 0.35s ease;
+}
+
+.events-continue:hover
+.events-continue__arrow {
+    background:
+        #76563e;
+
+    color:
+        #ffffff;
+
+    transform:
+        translateY(3px);
+}
+
+
+/* =========================================================
+   SIDE LABELS
+========================================================= */
+
+.events-side {
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        7px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.3em;
+
+    color:
+        rgba(48, 41, 35, 0.28);
+
+    writing-mode:
+        vertical-rl;
+
+    opacity:
+        0;
+
+    animation:
+        eventsSideReveal 1s ease forwards;
+
+    animation-delay:
+        1.5s;
+}
+
+.events-side--left {
+    left:
+        34px;
+
+    transform:
+        translateY(-50%)
+        rotate(180deg);
+}
+
+.events-side--right {
+    right:
+        34px;
+
+    transform:
+        translateY(-50%);
+}
+
+@keyframes eventsSideReveal {
+
+    from {
+        opacity:
+            0;
+    }
+
+    to {
+        opacity:
+            1;
+    }
+
+}
+
+
+/* =========================================================
+   GENERAL REVEAL
+========================================================= */
+
+@keyframes eventsReveal {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(18px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+@keyframes eventCardReveal {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .events-content {
+        width:
+            94%;
+
+        padding:
+            48px 15px 40px;
+    }
+
+    .events-list {
+        gap:
+            11px;
+    }
+
+    .event-card {
+        min-height:
+            205px;
+
+        padding:
+            23px 18px 20px;
+    }
+
+    .event-card__info {
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        gap:
+            2px;
+    }
+
+    .event-card__separator {
+        display:
+            none;
+    }
+
+    .events-side--left {
+        left:
+            22px;
+    }
+
+    .events-side--right {
+        right:
+            22px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .events-page {
+        min-height:
+            100svh;
+    }
+
+    .events-frame--outer {
+        inset:
+            14px;
+    }
+
+    .events-frame--inner {
+        inset:
+            24px;
+    }
+
+    .events-content {
+        width:
+            100%;
+
+        padding:
+            42px 20px 34px;
+    }
+
+    .events-header {
+        margin-bottom:
+            22px;
+    }
+
+    .events-eyebrow {
+        font-size:
+            8px;
+
+        letter-spacing:
+            0.22em;
+    }
+
+    .events-title {
+        font-size:
+            clamp(2rem, 9vw, 2.8rem);
+    }
+
+    .events-intro {
+        max-width:
+            320px;
+
+        margin-top:
+            11px;
+
+        font-size:
+            8px;
+
+        line-height:
+            1.7;
+    }
+
+
+    /* Mobile Cards */
+
+    .events-list {
+        width:
+            100%;
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            9px;
+    }
+
+    .event-card {
+        min-height:
+            125px;
+
+        padding:
+            16px 17px;
+    }
+
+    .event-card__number {
+        position:
+            absolute;
+
+        top:
+            16px;
+
+        right:
+            17px;
+    }
+
+    .event-card__details {
+        margin-top:
+            8px;
+
+        padding-right:
+            32px;
+    }
+
+    .event-card__label {
+        margin-bottom:
+            4px;
+
+        font-size:
+            6px;
+    }
+
+    .event-card__title {
+        font-size:
+            1.45rem;
+    }
+
+    .event-card__info {
+        flex-direction:
+            row;
+
+        align-items:
+            center;
+
+        gap:
+            6px;
+
+        margin-top:
+            7px;
+
+        font-size:
+            6.5px;
+    }
+
+    .event-card__separator {
+        display:
+            inline;
+    }
+
+    .event-card__venue {
+        margin-top:
+            4px;
+
+        font-size:
+            6.5px;
+    }
+
+    .event-card__icon {
+        right:
+            17px;
+
+        bottom:
+            14px;
+
+        width:
+            24px;
+
+        height:
+            24px;
+
+        font-size:
+            8px;
+    }
+
+    .events-continue {
+        margin-top:
+            18px;
+    }
+
+    .events-side {
+        display:
+            none;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .events-content {
+        padding:
+            34px 17px 28px;
+    }
+
+    .events-title {
+        font-size:
+            1.9rem;
+    }
+
+    .events-intro {
+        font-size:
+            7px;
+    }
+
+    .event-card {
+        min-height:
+            118px;
+
+        padding:
+            14px 15px;
+    }
+
+    .event-card__title {
+        font-size:
+            1.3rem;
+    }
+
+    .event-card__info {
+        font-size:
+            6px;
+    }
+
+    .event-card__venue {
+        font-size:
+            6px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .events-page *,
+    .events-page *::before,
+    .events-page *::after {
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+
+}

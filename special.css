@@ -1,0 +1,1241 @@
+/* =========================================================
+   WEDDING INVITATION
+   SPECIAL DAY PAGE
+========================================================= */
+
+.special-page {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    overflow: hidden;
+    isolation: isolate;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(135deg,
+            #f8f1eb 0%,
+            #fffaf6 48%,
+            #eadcd0 100%);
+
+    color: #332923;
+}
+
+.special-page.special-page-active {
+    display: flex;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.special-background {
+    position: absolute;
+    inset: 0;
+
+    z-index: -10;
+
+    overflow: hidden;
+}
+
+.special-background::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 50% 42%,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 255, 255, 0.45) 35%,
+            transparent 72%);
+}
+
+.special-background__glow {
+    position: absolute;
+
+    width: 32rem;
+    height: 32rem;
+
+    border-radius: 50%;
+
+    filter: blur(115px);
+
+    opacity: 0.17;
+
+    pointer-events: none;
+}
+
+.special-background__glow--one {
+    top: -18rem;
+    left: -13rem;
+
+    background:
+        rgba(157, 116, 84, 0.45);
+
+    animation:
+        specialGlowOne 14s ease-in-out infinite alternate;
+}
+
+.special-background__glow--two {
+    right: -15rem;
+    bottom: -18rem;
+
+    background:
+        rgba(193, 158, 132, 0.42);
+
+    animation:
+        specialGlowTwo 16s ease-in-out infinite alternate;
+}
+
+@keyframes specialGlowOne {
+
+    from {
+        transform:
+            translate3d(0, 0, 0) scale(1);
+    }
+
+    to {
+        transform:
+            translate3d(70px, 55px, 0) scale(1.16);
+    }
+
+}
+
+@keyframes specialGlowTwo {
+
+    from {
+        transform:
+            translate3d(0, 0, 0) scale(1);
+    }
+
+    to {
+        transform:
+            translate3d(-60px, -50px, 0) scale(1.15);
+    }
+
+}
+
+
+/* =========================================================
+   FLORAL CORNERS
+========================================================= */
+
+.special-page::before,
+.special-page::after {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    background-image:
+        url("../Assets/decorative/floral_corner.png");
+
+    background-repeat: no-repeat;
+
+    background-size: contain;
+
+    opacity: 0.34;
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    animation:
+        floralReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.special-page::before {
+    top: 0;
+    left: 0;
+
+    transform:
+        translate(-18px, -18px) scale(0.9);
+
+    animation-delay:
+        0.25s;
+}
+
+.special-page::after {
+    right: 0;
+    bottom: 0;
+
+    transform:
+        rotate(180deg) translate(-18px, -18px) scale(0.9);
+
+    animation-delay:
+        0.45s;
+}
+
+@keyframes floralReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translate(-35px, -35px) scale(0.82);
+    }
+
+    to {
+        opacity: 0.34;
+
+        transform:
+            translate(-18px, -18px) scale(0.9);
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA FLORAL CORNERS
+========================================================= */
+
+.special-frame--outer::before,
+.special-frame--inner::before {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    background-image:
+        url("../Assets/decorative/floral_corner.png");
+
+    background-repeat: no-repeat;
+
+    background-size: contain;
+
+    opacity: 0.2;
+
+    pointer-events: none;
+}
+
+.special-frame--outer::before {
+    top: 0;
+    right: 0;
+
+    transform:
+        rotate(90deg) translate(18px, -18px);
+}
+
+.special-frame--inner::before {
+    left: 0;
+    bottom: 0;
+
+    transform:
+        rotate(-90deg) translate(18px, -18px);
+}
+
+
+/* =========================================================
+   DECORATIVE FRAMES
+========================================================= */
+
+.special-frame {
+    position: absolute;
+
+    pointer-events: none;
+
+    border:
+        1px solid rgba(118, 86, 62, 0.16);
+
+    border-radius: 4px;
+
+    opacity: 0;
+
+    animation:
+        specialFrameReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.special-frame--outer {
+    inset: 28px;
+
+    animation-delay:
+        0.1s;
+}
+
+.special-frame--inner {
+    inset: 42px;
+
+    border-color:
+        rgba(118, 86, 62, 0.08);
+
+    animation-delay:
+        0.25s;
+}
+
+@keyframes specialFrameReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(1.035);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.special-content {
+    position: relative;
+
+    z-index: 5;
+
+    width:
+        min(92%, 920px);
+
+    min-height:
+        520px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        45px 25px;
+
+    text-align:
+        center;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.special-eyebrow {
+    margin:
+        0 0 12px;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        8px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.34em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        rgba(48, 41, 35, 0.48);
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        specialReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    animation-delay:
+        0.45s;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.special-title {
+    margin:
+        0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(3rem, 6vw, 5rem);
+
+    font-weight:
+        500;
+
+    line-height:
+        0.9;
+
+    letter-spacing:
+        -0.045em;
+
+    color:
+        #3b2e26;
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    animation:
+        specialReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    animation-delay:
+        0.6s;
+}
+
+
+/* =========================================================
+   FLORAL DIVIDER
+========================================================= */
+
+.special-title::after {
+    content: "";
+
+    display: block;
+
+    width:
+        150px;
+
+    height:
+        30px;
+
+    margin:
+        15px auto 8px;
+
+    background-image:
+        url("../Assets/decorative/floral_divider.png");
+
+    background-repeat:
+        no-repeat;
+
+    background-position:
+        center;
+
+    background-size:
+        contain;
+
+    opacity:
+        0.5;
+}
+
+
+/* =========================================================
+   COUPLE NAMES
+========================================================= */
+
+.special-names {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        25px;
+
+    margin-top:
+        5px;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(20px);
+
+    animation:
+        specialReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    animation-delay:
+        0.85s;
+}
+
+.special-name {
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(2.4rem, 5vw, 4rem);
+
+    font-weight:
+        500;
+
+    line-height:
+        1;
+
+    color:
+        #3d3028;
+}
+
+.special-name--groom {
+    font-style:
+        normal;
+}
+
+.special-name--bride {
+    font-style:
+        italic;
+}
+
+.special-heart {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        18px;
+
+    color:
+        #8b6550;
+
+    animation:
+        heartPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes heartPulse {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.18);
+    }
+
+}
+
+
+/* =========================================================
+   COUPLE IMAGE ACCENTS
+========================================================= */
+
+/* =========================================================
+   COUPLE PHOTOS
+========================================================= */
+
+.special-name--groom::after,
+.special-name--bride::after {
+    content: "";
+
+    display: block;
+
+    width: 92px;
+    height: 92px;
+
+    margin: 18px auto 0;
+
+    border-radius: 50%;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    border: 3px solid rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 8px 25px rgba(72, 50, 38, 0.12),
+        0 0 0 1px rgba(118, 86, 62, 0.16);
+
+    opacity: 0;
+
+    transform:
+        translateY(15px) scale(0.85);
+
+    animation:
+        couplePhotoReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    animation-delay: 1.05s;
+}
+
+
+/* Groom */
+
+.special-name--groom::after {
+    background-image:
+        url("../Assets/Images/groom.jpg");
+}
+
+
+/* Bride */
+
+.special-name--bride::after {
+    background-image:
+        url("../Assets/Images/bride.jpg");
+}
+
+
+/* Photo Animation */
+
+@keyframes couplePhotoReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px) scale(0.85);
+    }
+
+    to {
+        opacity: 0.95;
+
+        transform:
+            translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.special-date {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        16px;
+
+    width:
+        min(100%, 430px);
+
+    margin-top:
+        25px;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        specialReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    animation-delay:
+        1.05s;
+}
+
+.special-date__line {
+    flex:
+        1;
+
+    max-width:
+        90px;
+
+    height:
+        1px;
+
+    background:
+        rgba(118, 86, 62, 0.2);
+}
+
+.special-date__text {
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        8px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.22em;
+
+    text-transform:
+        uppercase;
+
+    white-space:
+        nowrap;
+
+    color:
+        rgba(48, 41, 35, 0.56);
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.special-message {
+    width:
+        min(100%, 470px);
+
+    margin:
+        22px auto 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(1rem, 1.8vw, 1.25rem);
+
+    font-weight:
+        400;
+
+    font-style:
+        italic;
+
+    line-height:
+        1.5;
+
+    color:
+        rgba(48, 41, 35, 0.58);
+
+    opacity:
+        0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        specialReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    animation-delay:
+        1.2s;
+}
+
+
+/* =========================================================
+   CONTINUE BUTTON
+========================================================= */
+
+.special-continue {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        13px;
+
+    margin-top:
+        30px;
+
+    padding:
+        0;
+
+    border:
+        0;
+
+    background:
+        transparent;
+
+    color:
+        #76563e;
+
+    cursor:
+        pointer;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        specialReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    animation-delay:
+        1.4s;
+
+    transition:
+        transform 0.35s ease;
+}
+
+.special-continue:hover {
+    transform:
+        translateY(-3px);
+}
+
+.special-continue__text {
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        8px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.22em;
+
+    text-transform:
+        uppercase;
+}
+
+.special-continue__arrow {
+    width:
+        29px;
+
+    height:
+        29px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid rgba(118, 86, 62, 0.28);
+
+    border-radius:
+        50%;
+
+    font-size:
+        12px;
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        transform 0.35s ease;
+}
+
+.special-continue:hover .special-continue__arrow {
+    background:
+        #76563e;
+
+    color:
+        #ffffff;
+
+    transform:
+        translateY(3px);
+}
+
+
+/* =========================================================
+   SIDE LABELS
+========================================================= */
+
+.special-side {
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        7px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.3em;
+
+    color:
+        rgba(48, 41, 35, 0.25);
+
+    writing-mode:
+        vertical-rl;
+
+    opacity:
+        0;
+
+    animation:
+        specialSideReveal 1s ease forwards;
+
+    animation-delay:
+        1.5s;
+}
+
+.special-side--left {
+    left:
+        34px;
+
+    transform:
+        translateY(-50%) rotate(180deg);
+}
+
+.special-side--right {
+    right:
+        34px;
+
+    transform:
+        translateY(-50%);
+}
+
+@keyframes specialSideReveal {
+
+    from {
+        opacity:
+            0;
+    }
+
+    to {
+        opacity:
+            1;
+    }
+
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+@keyframes specialReveal {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(18px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .special-content {
+        width:
+            94%;
+    }
+
+    .special-page::before,
+    .special-page::after,
+    .special-frame--outer::before,
+    .special-frame--inner::before {
+        width:
+            150px;
+
+        height:
+            150px;
+    }
+
+    .special-side--left {
+        left:
+            22px;
+    }
+
+    .special-side--right {
+        right:
+            22px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .special-page {
+        min-height:
+            100svh;
+    }
+
+    .special-frame--outer {
+        inset:
+            14px;
+    }
+
+    .special-frame--inner {
+        inset:
+            24px;
+    }
+
+
+    /* Floral */
+
+    .special-page::before,
+    .special-page::after,
+    .special-frame--outer::before,
+    .special-frame--inner::before {
+        width:
+            105px;
+
+        height:
+            105px;
+
+        opacity:
+            0.25;
+    }
+
+
+    /* Content */
+
+    .special-content {
+        width:
+            100%;
+
+        min-height:
+            0;
+
+        padding:
+            35px 22px;
+    }
+
+
+    /* Header */
+
+    .special-eyebrow {
+        margin-bottom:
+            10px;
+
+        font-size:
+            7px;
+
+        letter-spacing:
+            0.24em;
+    }
+
+    .special-title {
+        font-size:
+            clamp(2.5rem, 12vw, 3.4rem);
+    }
+
+    .special-title::after {
+        width:
+            125px;
+
+        height:
+            24px;
+
+        margin:
+            12px auto 6px;
+    }
+
+
+    /* Names */
+
+    .special-names {
+        gap:
+            12px;
+
+        margin-top:
+            3px;
+    }
+
+    .special-name {
+        font-size:
+            clamp(2rem, 10vw, 2.8rem);
+    }
+
+    .special-heart {
+        width:
+            22px;
+
+        height:
+            22px;
+
+        font-size:
+            14px;
+    }
+
+
+    /* Mini Images */
+
+    .special-name--groom::after,
+    .special-name--bride::after {
+        width: 68px;
+        height: 68px;
+
+        margin-top: 14px;
+    }
+
+
+    /* Date */
+
+    .special-date {
+        gap:
+            10px;
+
+        margin-top:
+            20px;
+    }
+
+    .special-date__line {
+        max-width:
+            50px;
+    }
+
+    .special-date__text {
+        font-size:
+            6.5px;
+
+        letter-spacing:
+            0.16em;
+    }
+
+
+    /* Message */
+
+    .special-message {
+        max-width:
+            320px;
+
+        margin-top:
+            18px;
+
+        font-size:
+            0.95rem;
+
+        line-height:
+            1.45;
+    }
+
+
+    /* Button */
+
+    .special-continue {
+        margin-top:
+            23px;
+    }
+
+    .special-continue__text {
+        font-size:
+            7px;
+    }
+
+
+    /* Side labels */
+
+    .special-side {
+        display:
+            none;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .special-content {
+        padding:
+            30px 18px;
+    }
+
+    .special-title {
+        font-size:
+            2.35rem;
+    }
+
+    .special-name {
+        font-size:
+            1.9rem;
+    }
+
+    .special-message {
+        max-width:
+            285px;
+
+        font-size:
+            0.88rem;
+    }
+
+    .special-date__text {
+        font-size:
+            6px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .special-page *,
+    .special-page *::before,
+    .special-page *::after {
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+
+}

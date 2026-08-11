@@ -1,0 +1,1717 @@
+/* =========================================================
+   WEDDING INVITATION
+   VENUE PAGE
+========================================================= */
+
+.venue-page {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+
+    overflow: hidden;
+    isolation: isolate;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eee4da 0%,
+            #faf7f3 48%,
+            #e7d9cb 100%
+        );
+
+    color: #302923;
+}
+
+.venue-page.venue-page-active {
+    display: flex;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.venue-background {
+    position: absolute;
+    inset: 0;
+
+    z-index: -5;
+
+    overflow: hidden;
+}
+
+.venue-background::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.88) 0%,
+            rgba(255, 255, 255, 0.22) 45%,
+            transparent 76%
+        );
+}
+
+.venue-background__glow {
+    position: absolute;
+
+    width: 36rem;
+    height: 36rem;
+
+    border-radius: 50%;
+
+    filter: blur(110px);
+
+    opacity: 0.18;
+
+    pointer-events: none;
+}
+
+.venue-background__glow--one {
+    top: -20rem;
+    left: -14rem;
+
+    background:
+        rgba(154, 112, 79, 0.42);
+
+    animation:
+        venueGlowOne 15s ease-in-out infinite alternate;
+}
+
+.venue-background__glow--two {
+    right: -16rem;
+    bottom: -20rem;
+
+    background:
+        rgba(190, 158, 128, 0.4);
+
+    animation:
+        venueGlowTwo 17s ease-in-out infinite alternate;
+}
+
+@keyframes venueGlowOne {
+
+    from {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate3d(75px, 55px, 0)
+            scale(1.18);
+    }
+
+}
+
+@keyframes venueGlowTwo {
+
+    from {
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate3d(-65px, -55px, 0)
+            scale(1.15);
+    }
+
+}
+
+
+/* =========================================================
+   DECORATIVE FRAME
+========================================================= */
+
+.venue-frame {
+    position: absolute;
+
+    pointer-events: none;
+
+    border:
+        1px solid rgba(118, 86, 62, 0.17);
+
+    border-radius: 4px;
+
+    opacity: 0;
+
+    animation:
+        venueFrameReveal 1.2s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+}
+
+.venue-frame--outer {
+    inset: 28px;
+
+    animation-delay:
+        0.15s;
+}
+
+.venue-frame--inner {
+    inset: 42px;
+
+    border-color:
+        rgba(118, 86, 62, 0.08);
+
+    animation-delay:
+        0.3s;
+}
+
+@keyframes venueFrameReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(1.04);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.venue-content {
+    position: relative;
+
+    z-index: 5;
+
+    width:
+        min(92%, 900px);
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        55px 20px 45px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.venue-header {
+    width:
+        min(100%, 650px);
+
+    text-align:
+        center;
+
+    margin-bottom:
+        30px;
+}
+
+.venue-eyebrow {
+    margin:
+        0 0 14px;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        9px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.3em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        rgba(48, 41, 35, 0.5);
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        venueReveal 1s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+
+    animation-delay:
+        0.4s;
+}
+
+.venue-title {
+    margin: 0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(2.5rem, 5vw, 4.2rem);
+
+    font-weight:
+        500;
+
+    line-height:
+        0.95;
+
+    letter-spacing:
+        -0.035em;
+
+    color:
+        #3d3027;
+
+    opacity: 0;
+
+    transform:
+        translateY(18px);
+
+    animation:
+        venueReveal 1s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+
+    animation-delay:
+        0.55s;
+}
+
+.venue-intro {
+    max-width:
+        500px;
+
+    margin:
+        15px auto 0;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        9px;
+
+    font-weight:
+        400;
+
+    line-height:
+        1.8;
+
+    letter-spacing:
+        0.04em;
+
+    color:
+        rgba(48, 41, 35, 0.5);
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        venueReveal 1s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+
+    animation-delay:
+        0.7s;
+}
+
+
+/* =========================================================
+   VENUE CARD
+========================================================= */
+
+.venue-card {
+    position: relative;
+
+    width:
+        min(100%, 760px);
+
+    min-height:
+        310px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        42px 55px;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        rgba(118, 86, 62, 0.2);
+
+    border-radius:
+        5px;
+
+    background:
+        rgba(255, 255, 255, 0.34);
+
+    backdrop-filter:
+        blur(15px);
+
+    -webkit-backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        0 25px 70px
+        rgba(70, 50, 35, 0.06);
+
+    opacity: 0;
+
+    transform:
+        translateY(25px)
+        scale(0.98);
+
+    animation:
+        venueCardReveal 1.1s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+
+    animation-delay:
+        0.85s;
+
+    transition:
+        transform 0.5s
+        cubic-bezier(0.16, 1, 0.3, 1),
+
+        box-shadow 0.5s ease,
+
+        border-color 0.4s ease;
+}
+
+.venue-card:hover {
+    transform:
+        translateY(-5px)
+        scale(1);
+
+    border-color:
+        rgba(118, 86, 62, 0.3);
+
+    box-shadow:
+        0 35px 85px
+        rgba(70, 50, 35, 0.1);
+}
+
+.venue-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border:
+        1px solid
+        rgba(118, 86, 62, 0.08);
+
+    pointer-events:
+        none;
+}
+
+.venue-card::after {
+    content: "";
+
+    position: absolute;
+
+    width:
+        180px;
+
+    height:
+        180px;
+
+    right:
+        -85px;
+
+    top:
+        -85px;
+
+    border:
+        1px solid
+        rgba(118, 86, 62, 0.12);
+
+    border-radius:
+        50%;
+
+    pointer-events:
+        none;
+}
+
+
+/* =========================================================
+   CARD NUMBER
+========================================================= */
+
+.venue-card__number {
+    position:
+        absolute;
+
+    top:
+        25px;
+
+    left:
+        27px;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        8px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.18em;
+
+    color:
+        rgba(118, 86, 62, 0.4);
+}
+
+
+/* =========================================================
+   VENUE ICON
+========================================================= */
+
+.venue-card__icon {
+    width:
+        86px;
+
+    height:
+        86px;
+
+    flex-shrink:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    margin-right:
+        55px;
+
+    border:
+        1px solid
+        rgba(118, 86, 62, 0.2);
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+        0 0 0 9px
+        rgba(118, 86, 62, 0.035);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+.venue-card:hover .venue-card__icon {
+    transform:
+        rotate(8deg)
+        scale(1.06);
+
+    box-shadow:
+        0 0 0 13px
+        rgba(118, 86, 62, 0.04);
+}
+
+.venue-card__icon span {
+    font-size:
+        22px;
+
+    color:
+        rgba(118, 86, 62, 0.65);
+}
+
+
+/* =========================================================
+   VENUE DETAILS
+========================================================= */
+
+.venue-card__details {
+    flex:
+        1;
+
+    min-width:
+        0;
+}
+
+.venue-card__label {
+    display:
+        block;
+
+    margin-bottom:
+        7px;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        7px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.22em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        rgba(118, 86, 62, 0.58);
+}
+
+.venue-card__name {
+    margin:
+        0;
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(2rem, 4vw, 3.2rem);
+
+    font-weight:
+        500;
+
+    line-height:
+        0.95;
+
+    letter-spacing:
+        -0.025em;
+
+    color:
+        #403228;
+}
+
+.venue-card__address {
+    margin:
+        10px 0 0;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        8px;
+
+    line-height:
+        1.6;
+
+    color:
+        rgba(48, 41, 35, 0.48);
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.venue-card__meta {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        34px;
+
+    margin-top:
+        20px;
+
+    padding-top:
+        16px;
+
+    border-top:
+        1px solid
+        rgba(118, 86, 62, 0.12);
+}
+
+.venue-meta {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        5px;
+}
+
+.venue-meta__label {
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        6px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.18em;
+
+    text-transform:
+        uppercase;
+
+    color:
+        rgba(118, 86, 62, 0.45);
+}
+
+.venue-meta__value {
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        7px;
+
+    font-weight:
+        500;
+
+    color:
+        rgba(48, 41, 35, 0.62);
+}
+
+
+/* =========================================================
+   LOCATION BUTTON
+========================================================= */
+
+.venue-location {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        10px;
+
+    margin-top:
+        21px;
+
+    padding:
+        10px 15px;
+
+    border:
+        1px solid
+        rgba(118, 86, 62, 0.22);
+
+    border-radius:
+        2px;
+
+    text-decoration:
+        none;
+
+    color:
+        #76563e;
+
+    background:
+        rgba(255, 255, 255, 0.18);
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        transform 0.35s ease;
+}
+
+.venue-location:hover {
+    background:
+        #76563e;
+
+    color:
+        #ffffff;
+
+    border-color:
+        #76563e;
+
+    transform:
+        translateY(-2px);
+}
+
+.venue-location__text {
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        7px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.16em;
+
+    text-transform:
+        uppercase;
+}
+
+.venue-location__arrow {
+    font-size:
+        11px;
+
+    line-height:
+        1;
+}
+
+
+/* =========================================================
+   CONTINUE BUTTON
+========================================================= */
+
+.venue-continue {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        13px;
+
+    margin-top:
+        28px;
+
+    padding:
+        0;
+
+    border:
+        0;
+
+    background:
+        transparent;
+
+    color:
+        #76563e;
+
+    cursor:
+        pointer;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        venueReveal 1s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+
+    animation-delay:
+        1.55s;
+
+    transition:
+        transform 0.35s ease;
+}
+
+.venue-continue:hover {
+    transform:
+        translateY(-3px);
+}
+
+.venue-continue__text {
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        8px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.22em;
+
+    text-transform:
+        uppercase;
+}
+
+.venue-continue__arrow {
+    width:
+        28px;
+
+    height:
+        28px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        rgba(118, 86, 62, 0.28);
+
+    border-radius:
+        50%;
+
+    font-size:
+        12px;
+
+    transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        transform 0.35s ease;
+}
+
+.venue-continue:hover
+.venue-continue__arrow {
+    background:
+        #76563e;
+
+    color:
+        #ffffff;
+
+    transform:
+        translateY(3px);
+}
+
+
+/* =========================================================
+   SIDE LABELS
+========================================================= */
+
+.venue-side {
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    font-family:
+        "Montserrat",
+        sans-serif;
+
+    font-size:
+        7px;
+
+    font-weight:
+        600;
+
+    letter-spacing:
+        0.3em;
+
+    color:
+        rgba(48, 41, 35, 0.28);
+
+    writing-mode:
+        vertical-rl;
+
+    opacity:
+        0;
+
+    animation:
+        venueSideReveal 1s ease forwards;
+
+    animation-delay:
+        1.5s;
+}
+
+.venue-side--left {
+    left:
+        34px;
+
+    transform:
+        translateY(-50%)
+        rotate(180deg);
+}
+
+.venue-side--right {
+    right:
+        34px;
+
+    transform:
+        translateY(-50%);
+}
+
+@keyframes venueSideReveal {
+
+    from {
+        opacity:
+            0;
+    }
+
+    to {
+        opacity:
+            1;
+    }
+
+}
+
+
+/* =========================================================
+   REVEAL ANIMATIONS
+========================================================= */
+
+@keyframes venueReveal {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(18px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+@keyframes venueCardReveal {
+
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(25px)
+            scale(0.98);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .venue-content {
+        width:
+            94%;
+
+        padding:
+            48px 15px 40px;
+    }
+
+    .venue-card {
+        width:
+            min(100%, 700px);
+
+        padding:
+            40px 42px;
+    }
+
+    .venue-card__icon {
+        margin-right:
+            40px;
+    }
+
+    .venue-side--left {
+        left:
+            22px;
+    }
+
+    .venue-side--right {
+        right:
+            22px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .venue-page {
+        min-height:
+            100svh;
+    }
+
+    .venue-frame--outer {
+        inset:
+            14px;
+    }
+
+    .venue-frame--inner {
+        inset:
+            24px;
+    }
+
+    .venue-content {
+        width:
+            100%;
+
+        padding:
+            40px 20px 32px;
+    }
+
+    .venue-header {
+        margin-bottom:
+            22px;
+    }
+
+    .venue-eyebrow {
+        margin-bottom:
+            11px;
+
+        font-size:
+            8px;
+
+        letter-spacing:
+            0.22em;
+    }
+
+    .venue-title {
+        font-size:
+            clamp(2rem, 9vw, 2.8rem);
+    }
+
+    .venue-intro {
+        max-width:
+            320px;
+
+        margin-top:
+            11px;
+
+        font-size:
+            8px;
+
+        line-height:
+            1.7;
+    }
+
+
+    /* Mobile Card */
+
+    .venue-card {
+        width:
+            100%;
+
+        min-height:
+            auto;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        padding:
+            30px 22px 24px;
+
+        text-align:
+            center;
+    }
+
+    .venue-card__number {
+        top:
+            18px;
+
+        left:
+            19px;
+    }
+
+    .venue-card__icon {
+        width:
+            62px;
+
+        height:
+            62px;
+
+        margin:
+            0 auto 18px;
+    }
+
+    .venue-card__icon span {
+        font-size:
+            17px;
+    }
+
+    .venue-card__details {
+        width:
+            100%;
+    }
+
+    .venue-card__label {
+        font-size:
+            6px;
+    }
+
+    .venue-card__name {
+        font-size:
+            clamp(1.8rem, 8vw, 2.4rem);
+
+        line-height:
+            0.95;
+    }
+
+    .venue-card__address {
+        max-width:
+            280px;
+
+        margin:
+            9px auto 0;
+
+        font-size:
+            7px;
+    }
+
+    .venue-card__meta {
+        justify-content:
+            center;
+
+        gap:
+            28px;
+
+        margin-top:
+            17px;
+
+        padding-top:
+            14px;
+    }
+
+    .venue-meta {
+        align-items:
+            center;
+    }
+
+    .venue-meta__label {
+        font-size:
+            5.5px;
+    }
+
+    .venue-meta__value {
+        font-size:
+            6.5px;
+    }
+
+    .venue-location {
+        margin-top:
+            17px;
+
+        padding:
+            9px 13px;
+    }
+
+    .venue-location__text {
+        font-size:
+            6.5px;
+    }
+
+    .venue-continue {
+        margin-top:
+            19px;
+    }
+
+    .venue-side {
+        display:
+            none;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .venue-content {
+        padding:
+            34px 17px 28px;
+    }
+
+    .venue-title {
+        font-size:
+            1.9rem;
+    }
+
+    .venue-intro {
+        font-size:
+            7px;
+    }
+
+    .venue-card {
+        padding:
+            27px 18px 21px;
+    }
+
+    .venue-card__name {
+        font-size:
+            1.75rem;
+    }
+
+    .venue-card__meta {
+        gap:
+            20px;
+    }
+
+    .venue-meta__value {
+        font-size:
+            6px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .venue-page *,
+    .venue-page *::before,
+    .venue-page *::after {
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+
+}
+
+/* =========================================================
+   VENUE IMAGE
+========================================================= */
+
+.venue-card__image {
+    position: relative;
+
+    width: min(100%, 360px);
+    height: 220px;
+
+    margin: 22px auto 26px;
+
+    overflow: hidden;
+
+    border-radius: 3px;
+
+    border: 1px solid rgba(118, 86, 62, 0.16);
+
+    box-shadow:
+        0 18px 40px rgba(72, 50, 38, 0.10);
+
+    opacity: 0;
+
+    transform:
+        translateY(18px)
+        scale(0.97);
+
+    animation:
+        venueImageReveal
+        1s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
+
+    animation-delay: 0.45s;
+}
+
+.venue-card__image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition:
+        transform 0.8s
+        cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.venue-card__image:hover img {
+    transform: scale(1.06);
+}
+
+.venue-card__image-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 55%,
+            rgba(35, 25, 20, 0.16) 100%
+        );
+}
+
+@keyframes venueImageReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE VENUE IMAGE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .venue-card__image {
+        width: 100%;
+        height: 185px;
+
+        margin:
+            18px auto 22px;
+    }
+
+}
+
+@media (max-width: 380px) {
+
+    .venue-card__image {
+        height: 165px;
+    }
+
+}
+
+/* =========================================================
+   PREMIUM VENUE IMAGE LAYOUT
+========================================================= */
+
+.venue-card {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Remove the old image spacing */
+
+.venue-card__image {
+    position: relative;
+
+    width: 48%;
+    height: 330px;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    border-radius: 2px;
+
+    border: 0;
+
+    box-shadow:
+        18px 0 45px rgba(72, 50, 38, 0.08);
+
+    opacity: 1;
+
+    transform: none;
+
+    animation: none;
+}
+
+
+/* Image */
+
+.venue-card__image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transform: scale(1.01);
+
+    transition:
+        transform 1.2s
+        cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.8s ease;
+}
+
+
+/* Elegant image movement */
+
+.venue-card:hover
+.venue-card__image img {
+    transform: scale(1.06);
+}
+
+
+/* Image overlay */
+
+.venue-card__image-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(25, 18, 14, 0.02) 0%,
+            rgba(25, 18, 14, 0) 55%,
+            rgba(25, 18, 14, 0.14) 100%
+        );
+}
+
+
+/* =========================================================
+   VENUE DETAILS
+========================================================= */
+
+.venue-card__details {
+    position: relative;
+
+    width: 52%;
+
+    padding:
+        30px 42px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.venue-card__icon {
+    position: absolute;
+
+    top: 28px;
+    left: 28px;
+
+    z-index: 5;
+
+    width: 58px;
+    height: 58px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255, 250, 246, 0.9);
+
+    border:
+        1px solid
+        rgba(118, 86, 62, 0.14);
+
+    box-shadow:
+        0 8px 25px
+        rgba(72, 50, 38, 0.08);
+
+    backdrop-filter:
+        blur(8px);
+}
+
+.venue-card__icon span {
+    font-size:
+        17px;
+
+    color:
+        #8b6550;
+}
+
+
+/* =========================================================
+   IMAGE REVEAL
+========================================================= */
+
+.venue-card__image {
+    animation:
+        venueImagePremiumReveal
+        1s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+@keyframes venueImagePremiumReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .venue-card {
+        display:
+            flex;
+
+        flex-direction:
+            column;
+    }
+
+
+    .venue-card__image {
+        width: 100%;
+
+        height: 230px;
+
+        order: 1;
+    }
+
+
+    .venue-card__details {
+        width: 100%;
+
+        padding:
+            32px 25px 30px;
+
+        order: 2;
+    }
+
+
+    .venue-card__icon {
+        top: 20px;
+        left: 20px;
+
+        width: 48px;
+        height: 48px;
+    }
+
+}
+
+
+@media (max-width: 420px) {
+
+    .venue-card__image {
+        height: 205px;
+    }
+
+    .venue-card__details {
+        padding:
+            28px 20px;
+    }
+
+}
