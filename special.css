@@ -597,7 +597,7 @@
 
 .special-name--groom::after {
     background-image:
-        url("../Assets/Images/groom.jpg");
+        url("groom.jpg");
 }
 
 
@@ -605,7 +605,7 @@
 
 .special-name--bride::after {
     background-image:
-        url("../Assets/Images/bride.jpg");
+        url("bride.jpg");
 }
 
 
