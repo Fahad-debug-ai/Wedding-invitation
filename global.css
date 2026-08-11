@@ -444,7 +444,7 @@ body.is-transitioning {
     width: 350px;
     height: 650px;
 
-    background-image: url("../Assets/decorative/floral corner.png");
+    background-image: url("floral corner.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
